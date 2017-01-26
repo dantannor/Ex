@@ -31,24 +31,24 @@ public class WaveArrayTest {
     @Test
     public void test2(){
         ArrayList<Integer> a = new ArrayList<>(asList(1, 2));
-        ArrayList<Integer> actual = sut.wave(a);
-
-        Assert.assertEquals(a, actual);
-    }
-
-    @Test
-    public void test3(){
-        ArrayList<Integer> a = new ArrayList<>(asList(2, 1));
-        ArrayList<Integer> expected = new ArrayList<>(asList(1, 2));
+        ArrayList<Integer> expected = new ArrayList<>(asList(2, 1));
         ArrayList<Integer> actual = sut.wave(a);
 
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void test4(){
+    public void test3(){
         ArrayList<Integer> a = new ArrayList<>(asList(2, 1));
-        ArrayList<Integer> expected = new ArrayList<>(asList(1, 2));
+        ArrayList<Integer> actual = sut.wave(a);
+
+        Assert.assertEquals(a, actual);
+    }
+
+    @Test
+    public void test4(){
+        ArrayList<Integer> a = new ArrayList<>(asList(1, 1, 2));
+        ArrayList<Integer> expected = new ArrayList<>(asList(2, 1, 1));
         ArrayList<Integer> actual = sut.wave(a);
 
         Assert.assertEquals(expected, actual);
@@ -58,6 +58,15 @@ public class WaveArrayTest {
     public void test5(){
         ArrayList<Integer> a = new ArrayList<>(asList(1, 2, 3));
         ArrayList<Integer> expected = new ArrayList<>(asList(2, 1, 3));
+        ArrayList<Integer> actual = sut.wave(a);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test6(){
+        ArrayList<Integer> a = new ArrayList<>(asList(1, 2, 3, 4));
+        ArrayList<Integer> expected = new ArrayList<>(asList(2, 1, 4, 3));
         ArrayList<Integer> actual = sut.wave(a);
 
         Assert.assertEquals(expected, actual);

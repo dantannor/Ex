@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * Created by Daniel on 24-Jan-17.
@@ -8,16 +9,15 @@ public class WaveArray {
         if (a.size() == 1 || a.isEmpty())
             return a;
         ArrayList<Integer> res = (ArrayList<Integer>) a.clone();
+        res.sort(Comparator.naturalOrder());
 
-        if (a.get(0) > a.get(1)) {
-            int tmp = res.get(0);
-            res.set(0, res.get(1));
-            res.set(1, tmp);
+        for (int i = 0; i < a.size() - 1; i+=2) {
+            int tmp = res.get(i);
+            res.set(i, res.get(i+1));
+            res.set(i+1, tmp);
         }
 
-        // todo: first sort from small to large, then some type of bubble sort. also, what if there's no answer?
-
-
+        //todo: deal with consecutive equal numbers
         return res;
     }
 }
