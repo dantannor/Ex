@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 /**
- * Created by Daniel on 24-Jan-17.
+ * Given an array of integers, sort the array into a wave like array and return it,
+ In other words, arrange the elements into a sequence such that a1 >= a2 <= a3 >= a4 <= a5.....
  */
 public class WaveArray {
     public ArrayList<Integer> wave(ArrayList<Integer> a) {
@@ -17,7 +18,6 @@ public class WaveArray {
             res.set(i+1, tmp);
         }
 
-        //todo: deal with consecutive equal numbers
         return res;
     }
 }
