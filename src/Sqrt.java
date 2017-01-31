@@ -4,23 +4,27 @@
 public class Sqrt {
     public int sqrt(int a) {
         int low = 0, high = a / 2;
-        int res = 0; // not sure this is needed
+        int cur = 0;
 
-        while (res <= a) {
-            int cur = (low + high) / 2;
+        if(a == 1)
+            return 1;
+
+        while (low < high) {
+            cur = (low + high) / 2;
             int mult = cur * cur;
 
-            if ((mult) == a)
-                return res;
+            if (mult == a)
+                return cur;
 
             if (mult > a)
-                cur =
-
-            res++;
-
-            //todo: finish implementation with binary search
+                high = cur - 1;
+            else
+                low = cur + 1;
         }
 
-        return 0;
+        if(low*low > a)
+            low-=1;
+
+        return low;
     }
 }
