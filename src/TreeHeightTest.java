@@ -10,12 +10,12 @@ import static java.util.Arrays.asList;
 /**
  * Created by Daniel on 2/6/2017.
  */
-public class FindMaxTest {
-    private static FindMax sut;
+public class TreeHeightTest {
+    private static TreeHeight sut;
 
     @BeforeClass
     public static void init(){
-        sut = new FindMax();
+        sut = new TreeHeight();
     }
 
     @Test
@@ -23,7 +23,7 @@ public class FindMaxTest {
         TreeNode node = new TreeNode(0);
 
         List<Integer> expected = new ArrayList<>(asList(0));
-        List<Integer> actual = sut.findMax(node);
+        List<Integer> actual = sut.getHeightRoute(node);
         Assert.assertEquals(expected, actual);
     }
 
@@ -33,7 +33,7 @@ public class FindMaxTest {
         node.left = new TreeNode(1);
 
         List<Integer> expected = new ArrayList<>(asList(1, 0));
-        List<Integer> actual = sut.findMax(node);
+        List<Integer> actual = sut.getHeightRoute(node);
         Assert.assertEquals(expected, actual);
     }
 
@@ -44,7 +44,7 @@ public class FindMaxTest {
         node.right = new TreeNode(2);
 
         List<Integer> expected = new ArrayList<>(asList(1, 0));
-        List<Integer> actual = sut.findMax(node);
+        List<Integer> actual = sut.getHeightRoute(node);
         Assert.assertEquals(expected, actual);
     }
 
@@ -54,8 +54,8 @@ public class FindMaxTest {
         node.left = new TreeNode(1);
         node.left.left = new TreeNode(2);
 
-        List<Integer> expected = new ArrayList<>(asList(0, 1, 2));
-        List<Integer> actual = sut.findMax(node);
+        List<Integer> expected = new ArrayList<>(asList(2, 1, 0));
+        List<Integer> actual = sut.getHeightRoute(node);
         Assert.assertEquals(expected, actual);
     }
 
@@ -65,15 +65,15 @@ public class FindMaxTest {
         node.left = new TreeNode(1);
         node.left.right = new TreeNode(2);
 
-        List<Integer> expected = new ArrayList<>(asList(0, 1, 2));
-        List<Integer> actual = sut.findMax(node);
+        List<Integer> expected = new ArrayList<>(asList(2, 1, 0));
+        List<Integer> actual = sut.getHeightRoute(node);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void test6(){
         List<Integer> expected = new ArrayList<>(asList());
-        List<Integer> actual = sut.findMax(null);
+        List<Integer> actual = sut.getHeightRoute(null);
         Assert.assertEquals(expected, actual);
     }
 
@@ -84,8 +84,8 @@ public class FindMaxTest {
         node.right.left = new TreeNode(2);
         node.left = new TreeNode(4);
 
-        List<Integer> expected = new ArrayList<>(asList(0, 1, 2));
-        List<Integer> actual = sut.findMax(node);
+        List<Integer> expected = new ArrayList<>(asList(2, 1, 0));
+        List<Integer> actual = sut.getHeightRoute(node);
         Assert.assertEquals(expected, actual);
     }
 }

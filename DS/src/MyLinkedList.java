@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class MyLinkedList<T>{
 
     private Node<T> head;
@@ -56,6 +58,17 @@ public class MyLinkedList<T>{
         // when i set cur.next to null, does it make prev null also?
         prev.next = cur.next;
         T res = (T)cur.data;
+
+        return res;
+    }
+
+    public ArrayList<T> toList(){
+        ArrayList<T> res = new ArrayList<>();
+
+        while(head != null){
+            res.add(head.data);
+            head = head.next;
+        }
 
         return res;
     }
