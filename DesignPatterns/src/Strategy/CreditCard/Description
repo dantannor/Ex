@@ -1,0 +1,2 @@
+The strategy pattern in this example allows us to avoid conditional statements in the CreditCard class.
+For example if(amex) then, else if (visa) then. This way we can come along and simply implement a class for each algorithm and that's enough.
