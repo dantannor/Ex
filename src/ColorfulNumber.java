@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * For Given Number N find if its COLORFUL number or not
@@ -13,25 +16,26 @@ import java.util.HashSet;
  */
 public class ColorfulNumber {
     public int colorful(int a) {
-        HashSet<Integer> set = new HashSet<>();
-        int num = a;
+        String str = String.valueOf(a);
+        HashSet<Integer> curNums = new HashSet<>();
+        List nums = getSubNums(str);
 
-        for (int i = 1; i < length(num) + 1; i++) {
-            num = a;
-            while (num != 0) {
-                int cur = (int) Math.pow(10, i);
-                int remainder = num % cur;
-                int product = product(remainder);
+        for (num: nums) {
+            product(num);
+        }
+    }
 
-                if (set.contains(product))
-                    return 0;
-
-                set.add(product);
-                num /= cur;
+    private List getSubNums(String str) {
+        List res = new ArrayList<>();
+        for (int c = 0; c < str.length(); c++) {
+            for (int i = 1; i < str.length(); i++) {
+                String sub = str.substring(c, c + i);
+                int num = Integer.parseInt(sub);
+                res.add(num);
             }
         }
 
-        return 1;
+        return res;
     }
 
     private Integer product(int a) {

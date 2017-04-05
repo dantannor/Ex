@@ -37,7 +37,7 @@ public class ColorfulNumberTest {
         Assert.assertEquals(0, actual);
     }
 
-    //todo: test fails 
+    //todo: test fails
     @Test
     public void test5(){
         int actual = sut.colorful(123);
