@@ -18,20 +18,29 @@ public class ColorfulNumber {
     public int colorful(int a) {
         String str = String.valueOf(a);
         HashSet<Integer> curNums = new HashSet<>();
-        List nums = getSubNums(str);
+        List<Integer> nums = getSubNums(str);
 
-        for (num: nums) {
-            product(num);
+        for (int num: nums) {
+            int product = product(num);
+
+            if(curNums.contains(product))
+                return 0;
+
+            curNums.add(product);
         }
+
+        return 1;
     }
 
-    private List getSubNums(String str) {
-        List res = new ArrayList<>();
+    private List<Integer> getSubNums(String str) {
+        List<Integer> res = new ArrayList<>();
         for (int c = 0; c < str.length(); c++) {
-            for (int i = 1; i < str.length(); i++) {
-                String sub = str.substring(c, c + i);
-                int num = Integer.parseInt(sub);
-                res.add(num);
+            for (int i = 1; i <= str.length(); i++) {
+                if(c+i <= str.length()){
+                    String sub = str.substring(c, c + i);
+                    int num = Integer.parseInt(sub);
+                    res.add(num);
+                }
             }
         }
 
