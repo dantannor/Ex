@@ -61,19 +61,4 @@ public class ColorfulNumber {
 
         return product;
     }
-
-    private int length(int a) {
-        int num = a;
-        int count = 0;
-
-        if (a == 0)
-            return 1;
-
-        while (num != 0) {
-            num /= 10;
-            count++;
-        }
-
-        return count;
-    }
 }
