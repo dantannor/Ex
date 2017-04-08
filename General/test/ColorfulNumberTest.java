@@ -1,3 +1,4 @@
+import Hash.ColorfulNumber;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;

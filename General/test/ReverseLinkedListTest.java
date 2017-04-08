@@ -1,3 +1,5 @@
+import Lists.ListNode;
+import Lists.ReverseLinkedList;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
