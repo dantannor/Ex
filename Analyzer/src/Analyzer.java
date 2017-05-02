@@ -21,19 +21,23 @@ public class Analyzer {
         print(res);
     }
 
+    //TODO: add a hashmap for counts for percentage calculation
     private void print(HashMap<String, HashMap<String, Integer>> res) {
         for (Map.Entry<String, HashMap<String, Integer>> category : res.entrySet()) {
             System.out.println("---" + category.getKey() + "---");
 
-            int count = category.getValue().size();
+            int count = 0;
+            for (Map.Entry<String, Integer> type: category.getValue().entrySet()) {
+                count += type.getValue();
+            }
+
+//            int count = category.getValue().values().size();
             for (Map.Entry<String, Integer> type: category.getValue().entrySet()) {
                 int percentage = type.getValue() / count * 100;
 
                 if (percentage != 0)
                     System.out.println(type.getKey() + ": " + percentage + "%");
             }
-
-            System.out.println("--------");
         }
     }
 
