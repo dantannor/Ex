@@ -18,27 +18,31 @@ public class Analyzer {
 
     public void analyze() {
         HashMap<String,HashMap<String,Integer>> res = getParserMaps();
+
         print(res);
     }
 
-    //TODO: add a hashmap for counts for percentage calculation
     private void print(HashMap<String, HashMap<String, Integer>> res) {
         for (Map.Entry<String, HashMap<String, Integer>> category : res.entrySet()) {
             System.out.println("---" + category.getKey() + "---");
 
-            int count = 0;
-            for (Map.Entry<String, Integer> type: category.getValue().entrySet()) {
-                count += type.getValue();
-            }
-
-//            int count = category.getValue().values().size();
-            for (Map.Entry<String, Integer> type: category.getValue().entrySet()) {
-                int percentage = type.getValue() / count * 100;
+            int count = getCount(category);
+            for (Map.Entry<String, Integer> field: category.getValue().entrySet()) {
+                double percentage = (double)field.getValue() / count * 100;
 
                 if (percentage != 0)
-                    System.out.println(type.getKey() + ": " + percentage + "%");
+                    System.out.println(field.getKey() + ": " + String.format("%.2f", percentage) + "%");
             }
         }
+    }
+
+    private int getCount(Map.Entry<String, HashMap<String, Integer>> category) {
+        int count = 0;
+        for (Map.Entry<String, Integer> type: category.getValue().entrySet()) {
+            count += type.getValue();
+        }
+
+        return count;
     }
 
     private HashMap<String,HashMap<String,Integer>> getParserMaps() {

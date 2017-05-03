@@ -13,7 +13,7 @@ public class App {
         parsers.add(countryParser);
         parsers.add(osParser);
 
-        Analyzer analyzer = new Analyzer("C:\\Repos\\Ex\\Analyzer\\file.txt", parsers);
+        Analyzer analyzer = new Analyzer("Analyzer\\file.txt", parsers);
 
         analyzer.analyze();
     }

@@ -10,6 +10,8 @@ import static java.util.Arrays.asList;
 public class CountryParser implements Parser {
     @Override
     public String parse(String line) {
+        // License key doesn't work for WebServiceClient, so I randomly generate countries for now
+
 //        Pattern p = Pattern.compile("(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)");
 //        Matcher m = p.matcher(line);
 //
