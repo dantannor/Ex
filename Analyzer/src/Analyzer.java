@@ -5,7 +5,21 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Analyzes a txt file and prints the distribution of the user's OS, Country, etc.
+ * You are given a txt file where each row represents a user. Each row contains a browser User Agent and IP address. Print the distribution of the users Operating System and countries. Make sure your project is extendible so that more categories beyond the current categories (OS, country) may be added later on.
+ *
+ * You should use 3rd party libraries when needed.
+ *
+ * See file.txt for example input.
+ *
+ * Example output (Should be printed descending by percentage):
+ *
+ * Country:
+ * Israel: 80%
+ * Afghanistan: 20%
+ *
+ * OS:
+ * Windows: 90%
+ * Linux: 10%
  */
 public class Analyzer {
     private final List<Parser> parsers;
