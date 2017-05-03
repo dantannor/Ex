@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Created by Abuser on 5/2/2017.
+ * Analyzes a txt file and prints the distribution of the user's OS, Country, etc.
  */
 public class Analyzer {
     private final List<Parser> parsers;
