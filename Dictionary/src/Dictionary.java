@@ -35,6 +35,32 @@ public class Dictionary {
         }
     }
 
+    public void loadFiles2(Collection<String> paths){
+        ArrayList<Thread> threads = new ArrayList<>();
+
+        for (String path :
+                paths) {
+            Thread t = new Thread(new Runnable(){
+
+                @Override
+                public void run() {
+                    loadFile(path);
+                }
+            });
+            t.start();
+            threads.add(t);
+        }
+
+        for (Thread thread :
+                threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void loadFile(String path){
         try {
             try(BufferedReader br = new BufferedReader(new FileReader(path))) {

@@ -13,7 +13,7 @@ public class App {
         paths.add("C:\\Users\\Daniel\\Source\\Repos\\Ex\\Dictionary\\file3.txt");
         paths.add("C:\\Users\\Daniel\\Source\\Repos\\Ex\\Dictionary\\file2.txt");
 
-        dict.loadFiles(paths);
+        dict.loadFiles2(paths);
         dict.display();
     }
 }
